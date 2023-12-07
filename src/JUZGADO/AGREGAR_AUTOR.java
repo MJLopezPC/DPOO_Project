@@ -328,21 +328,26 @@ public class AGREGAR_AUTOR extends javax.swing.JFrame {
             
             if(nombres.getText().equals(aut) && numExp.getText().equals(exp)){
                 cont++;
-                String nombre_aux = nombres.getText();
-                int edad_aux = Integer.parseInt(edad.getText());
-                String lucros_aux = (String) lucro.getSelectedItem();
-                String penales_aux = (String) penales.getSelectedItem();
-                String arrepentimientos_aux = (String) arrepentimiento.getSelectedItem();
-                String vecinal_aux = (String) vecinal.getSelectedItem();
-                String educacion_aux = (String) educacion.getSelectedItem();
-                String trabajo_aux = (String) trabajo.getText();
-                String venganza_aux = (String) venganza.getSelectedItem();
-                String numExp_aux = (String) numExp.getText();
+                if(edad.getText().matches("[0-9].*")){
+                    String nombre_aux = nombres.getText();
+                    int edad_aux = Integer.parseInt(edad.getText());
+                    String lucros_aux = (String) lucro.getSelectedItem();
+                    String penales_aux = (String) penales.getSelectedItem();
+                    String arrepentimientos_aux = (String) arrepentimiento.getSelectedItem();
+                    String vecinal_aux = (String) vecinal.getSelectedItem();
+                    String educacion_aux = (String) educacion.getSelectedItem();
+                    String trabajo_aux = (String) trabajo.getText();
+                    String venganza_aux = (String) venganza.getSelectedItem();
+                    String numExp_aux = (String) numExp.getText();
 
-                Autor autor_aux = new Autor(lucros_aux, penales_aux, arrepentimientos_aux, vecinal_aux, educacion_aux, trabajo_aux, venganza_aux, nombre_aux, edad_aux, numExp_aux);
-                GUI_JUZGADO.autores.add(autor_aux);
+                    Autor autor_aux = new Autor(lucros_aux, penales_aux, arrepentimientos_aux, vecinal_aux, educacion_aux, trabajo_aux, venganza_aux, nombre_aux, edad_aux, numExp_aux);
+                    GUI_JUZGADO.autores.add(autor_aux);
 
-                JOptionPane.showMessageDialog(null, "Se han agregado los datos del autor");
+                    JOptionPane.showMessageDialog(null, "Se han agregado los datos del autor");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Corrija el campo EDAD");
+                }
             }
         }
         if(cont==0){

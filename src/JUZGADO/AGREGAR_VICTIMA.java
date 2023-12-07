@@ -261,19 +261,23 @@ public class AGREGAR_VICTIMA extends javax.swing.JFrame {
             
             if(nombre.getText().equals(vic) && numExp.getText().equals(exp)){
                 cont++;
-                
-                String nombre_aux = nombre.getText();
-                int edad_aux = Integer.parseInt(edad.getText());
-                String morales_aux = (String) morales.getSelectedItem();
-                String materiales_aux = (String) materiales.getSelectedItem();
-                String fisicos_aux = (String) fisicos.getSelectedItem();
-                String psiquicos_aux = (String) psiquicos.getSelectedItem();
-                String numExp_aux = (String) numExp.getText();
+                if(edad.getText().matches("[0-9].*")){
+                    String nombre_aux = nombre.getText();
+                    int edad_aux = Integer.parseInt(edad.getText());
+                    String morales_aux = (String) morales.getSelectedItem();
+                    String materiales_aux = (String) materiales.getSelectedItem();
+                    String fisicos_aux = (String) fisicos.getSelectedItem();
+                    String psiquicos_aux = (String) psiquicos.getSelectedItem();
+                    String numExp_aux = (String) numExp.getText();
 
-                Victima victima_aux = new Victima(fisicos_aux, morales_aux, psiquicos_aux, materiales_aux, nombre_aux, edad_aux, numExp_aux);
-                GUI_JUZGADO.victimas.add(victima_aux);
+                    Victima victima_aux = new Victima(fisicos_aux, morales_aux, psiquicos_aux, materiales_aux, nombre_aux, edad_aux, numExp_aux);
+                    GUI_JUZGADO.victimas.add(victima_aux);
 
-                JOptionPane.showMessageDialog(null, "Se han agregado los datos de la victima");
+                    JOptionPane.showMessageDialog(null, "Se han agregado los datos de la victima");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Corrija el campo edad");
+                }
             }
         }
         

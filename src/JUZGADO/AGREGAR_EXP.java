@@ -231,22 +231,27 @@ public class AGREGAR_EXP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bot_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_guardarActionPerformed
-        String numero_aux = text_num.getText();
-        int anno_aux = Integer.parseInt(text_anno.getText());
-        String delito_aux = (String) delito.getSelectedItem();
-        int estimacion_aux = Integer.parseInt(text_estimacion.getText());
-        String autor_aux = text_autor.getText();
-        String victima_aux = text_victima.getText();
-        
-        Expediente expediente_aux = new Expediente(numero_aux, anno_aux, delito_aux, estimacion_aux, autor_aux, victima_aux);
-        GUI_JUZGADO.expedientes.add(expediente_aux);
-        JOptionPane.showMessageDialog(null, "Se han agregado los datos del expediente");
-        
-        Agravante agravante_aux = new Agravante(0, numero_aux);
-        GUI_JUZGADO.agravantes.add(agravante_aux);
-        
-        Atenuante atenuante_aux = new Atenuante(0, numero_aux);
-        GUI_JUZGADO.atenuantes.add(atenuante_aux);
+        if(text_anno.getText().matches("[0-9].*")){
+            String numero_aux = text_num.getText();
+            int anno_aux = Integer.parseInt(text_anno.getText());
+            String delito_aux = (String) delito.getSelectedItem();
+            int estimacion_aux = Integer.parseInt(text_estimacion.getText());
+            String autor_aux = text_autor.getText();
+            String victima_aux = text_victima.getText();
+
+            Expediente expediente_aux = new Expediente(numero_aux, anno_aux, delito_aux, estimacion_aux, autor_aux, victima_aux);
+            GUI_JUZGADO.expedientes.add(expediente_aux);
+            JOptionPane.showMessageDialog(null, "Se han agregado los datos del expediente");
+
+            Agravante agravante_aux = new Agravante(0, numero_aux);
+            GUI_JUZGADO.agravantes.add(agravante_aux);
+
+            Atenuante atenuante_aux = new Atenuante(0, numero_aux);
+            GUI_JUZGADO.atenuantes.add(atenuante_aux);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Corrija el campo año");
+        }
         
         text_num.setText(""); text_anno.setText(""); delito.setSelectedItem(" "); 
         text_estimacion.setText(""); text_autor.setText(""); text_victima.setText("");

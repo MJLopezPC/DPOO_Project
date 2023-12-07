@@ -126,7 +126,7 @@ public class MODFICAR_EXPEDIENTE extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(bot_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(bot_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,8 +163,8 @@ public class MODFICAR_EXPEDIENTE extends javax.swing.JFrame {
                     .addComponent(text_vict, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bot_cancelar)
-                    .addComponent(bot_modificar))
+                    .addComponent(bot_modificar)
+                    .addComponent(bot_cancelar))
                 .addGap(122, 122, 122))
         );
 
@@ -189,32 +189,44 @@ public class MODFICAR_EXPEDIENTE extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bot_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bot_modificarActionPerformed
+        int cont = 0;
         String autor = text_autor.getText();
         String vict = text_vict.getText();
-        int anno = Integer.parseInt(text_anno.getText());
+        if(text_anno.getText().matches("[0-9].*")){
+            int anno = Integer.parseInt(text_anno.getText());
         
-        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
-            if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(text_num.getText())){
-                GUI_JUZGADO.expedientes.get(i).setAnno(anno);
-                GUI_JUZGADO.expedientes.get(i).setAutor(autor);
-                GUI_JUZGADO.expedientes.get(i).setVictima(vict);
-                
-                for(int j=0;j<GUI_JUZGADO.autores.size();j++){
-                    if(GUI_JUZGADO.autores.get(j).getNumExp().equals(text_num.getText())){
-                        GUI_JUZGADO.autores.get(j).setNombre(autor);
+            for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+                if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(text_num.getText())){
+                    cont++;
+                    GUI_JUZGADO.expedientes.get(i).setAnno(anno);
+                    GUI_JUZGADO.expedientes.get(i).setAutor(autor);
+                    GUI_JUZGADO.expedientes.get(i).setVictima(vict);
+
+                    for(int j=0;j<GUI_JUZGADO.autores.size();j++){
+                        if(GUI_JUZGADO.autores.get(j).getNumExp().equals(text_num.getText())){
+                            GUI_JUZGADO.autores.get(j).setNombre(autor);
+                        }
                     }
-                }
-                for(int k=0;k<GUI_JUZGADO.victimas.size();k++){
-                    if(GUI_JUZGADO.victimas.get(k).getNumExp().equals(text_num.getText())){
-                        GUI_JUZGADO.victimas.get(k).setNombre(vict);
+                    for(int k=0;k<GUI_JUZGADO.victimas.size();k++){
+                        if(GUI_JUZGADO.victimas.get(k).getNumExp().equals(text_num.getText())){
+                            GUI_JUZGADO.victimas.get(k).setNombre(vict);
+                        }
                     }
+                    text_num.setText(""); text_anno.setText(""); text_autor.setText(""); text_vict.setText("");
+                    
+                    Archivo binario = new Archivo();
+                    binario.escribirExpediente();  binario.escribirAutor();
+                    binario.escribirVictima();
+                    
+                    JOptionPane.showMessageDialog(null, "Expediente modificado correctamente");
                 }
-                text_num.setText(""); text_anno.setText(""); text_autor.setText(""); text_vict.setText("");
-                JOptionPane.showMessageDialog(null, "Expediente modificado correctamente");
             }
-            else{
+            if(cont==0){
                 JOptionPane.showMessageDialog(null, "No existe ningun expediente con este numero");
             }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Corrija el campo año");
         }
     }//GEN-LAST:event_bot_modificarActionPerformed
 

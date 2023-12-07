@@ -12,7 +12,7 @@ import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
-public class GUI_PRINCIPAL extends javax.swing.JFrame {
+public class GUI_JUZGADO extends javax.swing.JFrame {
     
     static ArrayList<Autor> autores = new ArrayList<Autor>();
     static ArrayList<Victima> victimas = new ArrayList<Victima>();
@@ -21,7 +21,7 @@ public class GUI_PRINCIPAL extends javax.swing.JFrame {
     static ArrayList<Agravante> agravantes = new ArrayList<Agravante>();
     static ArrayList<Atenuante> atenuantes = new ArrayList<Atenuante>();
     
-    public GUI_PRINCIPAL() {
+    public GUI_JUZGADO() {
         
         initComponents();
     }
@@ -332,6 +332,7 @@ public class GUI_PRINCIPAL extends javax.swing.JFrame {
         String del = ""; String pena = "";
         
         if(expedientes.size()!=0){
+            JOptionPane.showMessageDialog(null, "Para cerrar la tabla toque entre los botones REGLAS de CONDENAS y CERRAR");
             DefaultTableModel modelo = new DefaultTableModel();
             
             modelo.addColumn("Numero");
@@ -373,7 +374,7 @@ public class GUI_PRINCIPAL extends javax.swing.JFrame {
             ActionListener bot = new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
+                    for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
                         modelo.removeRow(0);
                     }
                     limpiar.setVisible(false);
@@ -416,20 +417,21 @@ public class GUI_PRINCIPAL extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_PRINCIPAL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_JUZGADO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_PRINCIPAL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_JUZGADO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_PRINCIPAL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_JUZGADO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_PRINCIPAL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_JUZGADO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_PRINCIPAL().setVisible(true);
+                new GUI_JUZGADO().setVisible(true);
             }
         });
     }

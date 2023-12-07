@@ -15,7 +15,7 @@ public class Archivo {
             FileOutputStream archivo = new FileOutputStream("expediente.bin");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             
-            escritura.writeObject(GUI_PRINCIPAL.expedientes);
+            escritura.writeObject(GUI_JUZGADO.expedientes);
             escritura.close();
         } catch (FileNotFoundException ex) {
             System.err.println("El error es "+ex);
@@ -29,7 +29,7 @@ public class Archivo {
             FileOutputStream archivo = new FileOutputStream("autor.bin");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             
-            escritura.writeObject(GUI_PRINCIPAL.autores);
+            escritura.writeObject(GUI_JUZGADO.autores);
             escritura.close();
         } catch (FileNotFoundException ex) {
             System.err.println("El error es "+ex);
@@ -43,7 +43,7 @@ public class Archivo {
             FileOutputStream archivo = new FileOutputStream("victima.bin");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             
-            escritura.writeObject(GUI_PRINCIPAL.victimas);
+            escritura.writeObject(GUI_JUZGADO.victimas);
             escritura.close();
         } catch (FileNotFoundException ex) {
             System.err.println("El error es "+ex);
@@ -57,7 +57,7 @@ public class Archivo {
             FileOutputStream archivo = new FileOutputStream("hecho.bin");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             
-            escritura.writeObject(GUI_PRINCIPAL.hecho);
+            escritura.writeObject(GUI_JUZGADO.hecho);
             escritura.close();
         } catch (FileNotFoundException ex) {
             System.err.println("El error es "+ex);
@@ -71,7 +71,7 @@ public class Archivo {
             FileOutputStream archivo = new FileOutputStream("agravante.bin");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             
-            escritura.writeObject(GUI_PRINCIPAL.agravantes);
+            escritura.writeObject(GUI_JUZGADO.agravantes);
             escritura.close();
         } catch (FileNotFoundException ex) {
             System.err.println("El error es "+ex);
@@ -85,7 +85,7 @@ public class Archivo {
             FileOutputStream archivo = new FileOutputStream("atenuante.bin");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             
-            escritura.writeObject(GUI_PRINCIPAL.atenuantes);
+            escritura.writeObject(GUI_JUZGADO.atenuantes);
             escritura.close();
         } catch (FileNotFoundException ex) {
             System.err.println("El error es "+ex);
@@ -100,7 +100,7 @@ public class Archivo {
             ObjectInputStream lectura = new ObjectInputStream(archivo);
             
             while(true){
-                GUI_PRINCIPAL.expedientes = (ArrayList<Expediente>) lectura.readObject();
+                GUI_JUZGADO.expedientes = (ArrayList<Expediente>) lectura.readObject();
             }
             
         } catch(EOFException ex){
@@ -120,7 +120,7 @@ public class Archivo {
             ObjectInputStream lectura = new ObjectInputStream(archivo);
             
             while(true){
-                GUI_PRINCIPAL.autores = (ArrayList<Autor>) lectura.readObject();
+                GUI_JUZGADO.autores = (ArrayList<Autor>) lectura.readObject();
             }
             
         } catch(EOFException ex){
@@ -140,7 +140,7 @@ public class Archivo {
             ObjectInputStream lectura = new ObjectInputStream(archivo);
             
             while(true){
-                GUI_PRINCIPAL.victimas = (ArrayList<Victima>) lectura.readObject();
+                GUI_JUZGADO.victimas = (ArrayList<Victima>) lectura.readObject();
             }
             
         } catch(EOFException ex){
@@ -160,7 +160,7 @@ public class Archivo {
             ObjectInputStream lectura = new ObjectInputStream(archivo);
             
             while(true){
-                GUI_PRINCIPAL.hecho = (ArrayList<Hecho>) lectura.readObject();
+                GUI_JUZGADO.hecho = (ArrayList<Hecho>) lectura.readObject();
             }
             
         } catch(EOFException ex){
@@ -180,7 +180,7 @@ public class Archivo {
             ObjectInputStream lectura = new ObjectInputStream(archivo);
             
             while(true){
-                GUI_PRINCIPAL.agravantes = (ArrayList<Agravante>) lectura.readObject();
+                GUI_JUZGADO.agravantes = (ArrayList<Agravante>) lectura.readObject();
             }
             
         } catch(EOFException ex){
@@ -200,7 +200,7 @@ public class Archivo {
             ObjectInputStream lectura = new ObjectInputStream(archivo);
             
             while(true){
-                GUI_PRINCIPAL.atenuantes = (ArrayList<Atenuante>) lectura.readObject();
+                GUI_JUZGADO.atenuantes = (ArrayList<Atenuante>) lectura.readObject();
             }
             
         } catch(EOFException ex){

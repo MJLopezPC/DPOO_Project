@@ -234,8 +234,8 @@ public class AGREGAR_HECHO extends javax.swing.JFrame {
         String exp = "";
         int cont = 0;
         int valor_ate = 0, valor_agr = 0;
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            exp = GUI_PRINCIPAL.expedientes.get(i).getNumero();
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            exp = GUI_JUZGADO.expedientes.get(i).getNumero();
             
             if(numExp.getText().equals(exp)){
                 cont++;
@@ -247,7 +247,7 @@ public class AGREGAR_HECHO extends javax.swing.JFrame {
                 String numExp_aux = (String) numExp.getText();
 
                 Hecho hechos_aux = new Hecho(horario_aux, drogas_aux, lugar_aux, medio_aux, planificacion_aux,numExp_aux);
-                GUI_PRINCIPAL.hecho.add(hechos_aux);
+                GUI_JUZGADO.hecho.add(hechos_aux);
 
                 JOptionPane.showMessageDialog(null, "Se han agregado los datos del hecho");
             }
@@ -263,18 +263,18 @@ public class AGREGAR_HECHO extends javax.swing.JFrame {
         if(planificacion.getSelectedItem().equals("Premeditado")) valor_agr+=2; else if(planificacion.getSelectedItem().equals("Sin Planificacion")) valor_ate+=2; 
         if(medios.getText().equals("")) valor_agr+=1; else valor_agr+=2;
         
-        for(int i=0;i<GUI_PRINCIPAL.agravantes.size();i++){
-            if(GUI_PRINCIPAL.agravantes.get(i).getNum_exp().equals(numExp.getText())){
-                int valor = GUI_PRINCIPAL.agravantes.get(i).getValor();
+        for(int i=0;i<GUI_JUZGADO.agravantes.size();i++){
+            if(GUI_JUZGADO.agravantes.get(i).getNum_exp().equals(numExp.getText())){
+                int valor = GUI_JUZGADO.agravantes.get(i).getValor();
                 valor_agr+=valor;
-                GUI_PRINCIPAL.agravantes.get(i).setValor(valor_agr);
+                GUI_JUZGADO.agravantes.get(i).setValor(valor_agr);
             }
         }
-        for(int i=0;i<GUI_PRINCIPAL.atenuantes.size();i++){
-            if(GUI_PRINCIPAL.atenuantes.get(i).getNum_exp().equals(numExp.getText())){
-                int valor = GUI_PRINCIPAL.atenuantes.get(i).getValor();
+        for(int i=0;i<GUI_JUZGADO.atenuantes.size();i++){
+            if(GUI_JUZGADO.atenuantes.get(i).getNum_exp().equals(numExp.getText())){
+                int valor = GUI_JUZGADO.atenuantes.get(i).getValor();
                 valor_ate+=valor;
-                GUI_PRINCIPAL.atenuantes.get(i).setValor(valor_ate);
+                GUI_JUZGADO.atenuantes.get(i).setValor(valor_ate);
             }
         }
         medios.setText(""); horario.setSelectedItem(" ");

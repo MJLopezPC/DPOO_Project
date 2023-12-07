@@ -1,0 +1,112 @@
+@startuml
+skinparam ClassAttributeIconSize 0
+
+class GUI_JUZGADO{
+    {static} expedientes: ArrayList<Expediente>
+    {static} autores: ArrayList<Autor>
+    {static} victimas: ArrayList<Victima>
+    {static} hechos: ArrayList<Hecho>
+    {static} agravantes: ArrayList<Agravante>
+    {static} atenuantes: ArrayList<Atenuante>
+
+    +Mostrar_Expedientes(): void
+    +Emitir_Sentencia(): void
+}
+
+class Expediente{
+    -numero: String
+    -anno: int
+    -delito: String
+    -estimacion: int
+    -autor: String
+    -victima: String
+    -pena: int
+
+    +Expediente(String numero, int anno, String delito, int estimacion, String autor, String victima)
+    +getNumero(): String
+    +getAnno(): int
+    +getDelito(): String
+    +getEstimacion(): int
+    +getAutor(): String
+    +getVictima(): String
+    +getPena(): int
+    +setAnno(int anno): void
+    +setAutor(String autor): void
+    +setVictima(String victima): void
+    +setPena(int pena): void
+}
+
+class Autor{
+    -nombre: String
+    -edad: int
+    -numExp: String
+    -animos_lucro: String
+    -antecedentes_penales: String
+    -arrepentimiento: String
+    -concepto_vecinal: String
+    -educacion: String
+    -trabajo: String
+    -venganza: String
+
+    +Autor(String animos_lucro, String antecedentes_penales, String arrepentimiento, String concepto_vecinal, String educacion, String trabajo, String venganza, String nombre, int edad, String numExp)
+    +setNombre(nombre: String): void
+    +getNombre(): String
+    +getNumExp(): String
+}
+
+class Victima{
+    -nombre: String
+    -edad: int
+    -numExp: String
+    -dano_fisicos: String
+    -dano_morales: String
+    -dano_psiquicos: String
+    -dano_materiales: String
+
+    +Victima(String dano_fisicos, String dano_morales, String dano_psiquicos, String dano_materiales, String nombre, int edad, String numExp)
+    +setNombre(nombre: String): void
+    +getNombre(): String
+    +getNumExp(): String
+}
+
+class Hecho{
+    -horario: String
+    -influencia_drogas: String
+    -lugar: String
+    -medios_empleados: String
+    -planificacion: String
+    -numExp: String
+
+    +Hecho(String horario, String influencia_drogas, String lugar, String medios_empleados, String planificacion, String numExp)
+    +getNumExp(): String
+}
+
+abstract class Circunstancia{
+    #valor: int
+    #num_exp: String
+
+    +Circunstancia(int valor, String num_exp)
+    +setValor(int valor): void
+    +getValor(): int
+    +getNum_exp(): String
+}
+
+class Agravante{
+    +Agravante(int valor, String num_exp)
+}
+
+class Atenuante{
+    +Atenuante(int valor, String num_exp)
+}
+
+interface Serializable
+
+Circunstancia <|-- Agravante
+Circunstancia <|-- Atenuante
+Expediente "1" *-- "0...*" Circunstancia
+Expediente "1" *-- "1" Autor
+Expediente "1" *-- "1" Victima
+Expediente "1" *-- "1" Hecho
+GUI_JUZGADO "1" *-- "0...*" Expediente
+
+@enduml

@@ -255,9 +255,9 @@ public class AGREGAR_VICTIMA extends javax.swing.JFrame {
         String exp = "", vic = "";
         int cont = 0;
         int valor_ate = 0, valor_agr = 0;
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            exp = GUI_PRINCIPAL.expedientes.get(i).getNumero();
-            vic = GUI_PRINCIPAL.expedientes.get(i).getVictima();
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            exp = GUI_JUZGADO.expedientes.get(i).getNumero();
+            vic = GUI_JUZGADO.expedientes.get(i).getVictima();
             
             if(nombre.getText().equals(vic) && numExp.getText().equals(exp)){
                 cont++;
@@ -271,7 +271,7 @@ public class AGREGAR_VICTIMA extends javax.swing.JFrame {
                 String numExp_aux = (String) numExp.getText();
 
                 Victima victima_aux = new Victima(fisicos_aux, morales_aux, psiquicos_aux, materiales_aux, nombre_aux, edad_aux, numExp_aux);
-                GUI_PRINCIPAL.victimas.add(victima_aux);
+                GUI_JUZGADO.victimas.add(victima_aux);
 
                 JOptionPane.showMessageDialog(null, "Se han agregado los datos de la victima");
             }
@@ -290,18 +290,18 @@ public class AGREGAR_VICTIMA extends javax.swing.JFrame {
         if(materiales.getSelectedItem().equals("Graves")) valor_agr+=3; else if(materiales.getSelectedItem().equals("Medios")) valor_agr+=2; 
         else if(materiales.getSelectedItem().equals("Leves")) valor_ate+=1; else valor_ate+=2;
         
-        for(int i=0;i<GUI_PRINCIPAL.agravantes.size();i++){
-            if(GUI_PRINCIPAL.agravantes.get(i).getNum_exp().equals(numExp.getText())){
-                int valor = GUI_PRINCIPAL.agravantes.get(i).getValor();
+        for(int i=0;i<GUI_JUZGADO.agravantes.size();i++){
+            if(GUI_JUZGADO.agravantes.get(i).getNum_exp().equals(numExp.getText())){
+                int valor = GUI_JUZGADO.agravantes.get(i).getValor();
                 valor_agr+=valor;
-                GUI_PRINCIPAL.agravantes.get(i).setValor(valor_agr);
+                GUI_JUZGADO.agravantes.get(i).setValor(valor_agr);
             }
         }
-        for(int i=0;i<GUI_PRINCIPAL.atenuantes.size();i++){
-            if(GUI_PRINCIPAL.atenuantes.get(i).getNum_exp().equals(numExp.getText())){
-                int valor = GUI_PRINCIPAL.atenuantes.get(i).getValor();
+        for(int i=0;i<GUI_JUZGADO.atenuantes.size();i++){
+            if(GUI_JUZGADO.atenuantes.get(i).getNum_exp().equals(numExp.getText())){
+                int valor = GUI_JUZGADO.atenuantes.get(i).getValor();
                 valor_ate+=valor;
-                GUI_PRINCIPAL.atenuantes.get(i).setValor(valor_ate);
+                GUI_JUZGADO.atenuantes.get(i).setValor(valor_ate);
             }
         }
         

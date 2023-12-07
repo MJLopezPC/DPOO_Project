@@ -322,9 +322,9 @@ public class AGREGAR_AUTOR extends javax.swing.JFrame {
         String exp = "", aut = "";
         int cont = 0;
         int valor_ate = 0, valor_agr = 0;
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            exp = GUI_PRINCIPAL.expedientes.get(i).getNumero();
-            aut = GUI_PRINCIPAL.expedientes.get(i).getAutor();
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            exp = GUI_JUZGADO.expedientes.get(i).getNumero();
+            aut = GUI_JUZGADO.expedientes.get(i).getAutor();
             
             if(nombres.getText().equals(aut) && numExp.getText().equals(exp)){
                 cont++;
@@ -340,7 +340,7 @@ public class AGREGAR_AUTOR extends javax.swing.JFrame {
                 String numExp_aux = (String) numExp.getText();
 
                 Autor autor_aux = new Autor(lucros_aux, penales_aux, arrepentimientos_aux, vecinal_aux, educacion_aux, trabajo_aux, venganza_aux, nombre_aux, edad_aux, numExp_aux);
-                GUI_PRINCIPAL.autores.add(autor_aux);
+                GUI_JUZGADO.autores.add(autor_aux);
 
                 JOptionPane.showMessageDialog(null, "Se han agregado los datos del autor");
             }
@@ -357,18 +357,18 @@ public class AGREGAR_AUTOR extends javax.swing.JFrame {
         if(trabajo.getText().equals("")) valor_agr+=1; else valor_ate+=2;
         if(venganza.getSelectedItem().equals("SI")) valor_agr+=2; else valor_ate+=1;
 
-        for(int i=0;i<GUI_PRINCIPAL.agravantes.size();i++){
-            if(GUI_PRINCIPAL.agravantes.get(i).getNum_exp().equals(numExp.getText())){
-                int valor = GUI_PRINCIPAL.agravantes.get(i).getValor();
+        for(int i=0;i<GUI_JUZGADO.agravantes.size();i++){
+            if(GUI_JUZGADO.agravantes.get(i).getNum_exp().equals(numExp.getText())){
+                int valor = GUI_JUZGADO.agravantes.get(i).getValor();
                 valor_agr+=valor;
-                GUI_PRINCIPAL.agravantes.get(i).setValor(valor_agr);
+                GUI_JUZGADO.agravantes.get(i).setValor(valor_agr);
             }
         }
-        for(int i=0;i<GUI_PRINCIPAL.atenuantes.size();i++){
-            if(GUI_PRINCIPAL.atenuantes.get(i).getNum_exp().equals(numExp.getText())){
-                int valor = GUI_PRINCIPAL.atenuantes.get(i).getValor();
+        for(int i=0;i<GUI_JUZGADO.atenuantes.size();i++){
+            if(GUI_JUZGADO.atenuantes.get(i).getNum_exp().equals(numExp.getText())){
+                int valor = GUI_JUZGADO.atenuantes.get(i).getValor();
                 valor_ate+=valor;
-                GUI_PRINCIPAL.atenuantes.get(i).setValor(valor_ate);
+                GUI_JUZGADO.atenuantes.get(i).setValor(valor_ate);
             }
         }
         

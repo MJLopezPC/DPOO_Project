@@ -133,25 +133,25 @@ public class ELIMINAR_EXP extends javax.swing.JFrame {
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         String exp = "";
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            exp = GUI_PRINCIPAL.expedientes.get(i).getNumero();
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            exp = GUI_JUZGADO.expedientes.get(i).getNumero();
             if(numero.getText().equals(exp)){
-                for(int j=0;j<GUI_PRINCIPAL.autores.size();j++){
-                    if(GUI_PRINCIPAL.autores.get(j).getNumExp().equals(exp)){
-                        GUI_PRINCIPAL.autores.remove(j);
+                for(int j=0;j<GUI_JUZGADO.autores.size();j++){
+                    if(GUI_JUZGADO.autores.get(j).getNumExp().equals(exp)){
+                        GUI_JUZGADO.autores.remove(j);
                     }
                 }
-                for(int k=0;k<GUI_PRINCIPAL.victimas.size();k++){
-                    if(GUI_PRINCIPAL.victimas.get(k).getNumExp().equals(exp)){
-                        GUI_PRINCIPAL.victimas.remove(k);
+                for(int k=0;k<GUI_JUZGADO.victimas.size();k++){
+                    if(GUI_JUZGADO.victimas.get(k).getNumExp().equals(exp)){
+                        GUI_JUZGADO.victimas.remove(k);
                     }
                 }
-                for(int l=0;l<GUI_PRINCIPAL.hecho.size();l++){
-                    if(GUI_PRINCIPAL.hecho.get(l).getNumExp().equals(exp)){
-                        GUI_PRINCIPAL.hecho.remove(l);
+                for(int l=0;l<GUI_JUZGADO.hecho.size();l++){
+                    if(GUI_JUZGADO.hecho.get(l).getNumExp().equals(exp)){
+                        GUI_JUZGADO.hecho.remove(l);
                     }
                 }
-                GUI_PRINCIPAL.expedientes.remove(i);
+                GUI_JUZGADO.expedientes.remove(i);
                 numero.setText("");
                 
                 Archivo binario = new Archivo();

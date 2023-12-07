@@ -239,14 +239,14 @@ public class AGREGAR_EXP extends javax.swing.JFrame {
         String victima_aux = text_victima.getText();
         
         Expediente expediente_aux = new Expediente(numero_aux, anno_aux, delito_aux, estimacion_aux, autor_aux, victima_aux);
-        GUI_PRINCIPAL.expedientes.add(expediente_aux);
+        GUI_JUZGADO.expedientes.add(expediente_aux);
         JOptionPane.showMessageDialog(null, "Se han agregado los datos del expediente");
         
         Agravante agravante_aux = new Agravante(0, numero_aux);
-        GUI_PRINCIPAL.agravantes.add(agravante_aux);
+        GUI_JUZGADO.agravantes.add(agravante_aux);
         
         Atenuante atenuante_aux = new Atenuante(0, numero_aux);
-        GUI_PRINCIPAL.atenuantes.add(atenuante_aux);
+        GUI_JUZGADO.atenuantes.add(atenuante_aux);
         
         text_num.setText(""); text_anno.setText(""); delito.setSelectedItem(" "); 
         text_estimacion.setText(""); text_autor.setText(""); text_victima.setText("");

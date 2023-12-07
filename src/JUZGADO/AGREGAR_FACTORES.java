@@ -230,23 +230,23 @@ public class AGREGAR_FACTORES extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            if(GUI_PRINCIPAL.expedientes.get(i).getNumero().equals(numExp.getText())){
-                est.setText(Integer.toString(GUI_PRINCIPAL.expedientes.get(i).getEstimacion()));
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(numExp.getText())){
+                est.setText(Integer.toString(GUI_JUZGADO.expedientes.get(i).getEstimacion()));
             }
         }
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String exped = "";
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            if(GUI_PRINCIPAL.expedientes.get(i).getNumero().equals(numExp.getText())){
-            exped = GUI_PRINCIPAL.expedientes.get(i).getNumero();
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(numExp.getText())){
+            exped = GUI_JUZGADO.expedientes.get(i).getNumero();
             }
         }
-        for(int i=0;i<GUI_PRINCIPAL.agravantes.size();i++){
-            if(GUI_PRINCIPAL.agravantes.get(i).getNum_exp().equals(exped)){
-                agr.setText(Integer.toString(GUI_PRINCIPAL.agravantes.get(i).getValor()));
+        for(int i=0;i<GUI_JUZGADO.agravantes.size();i++){
+            if(GUI_JUZGADO.agravantes.get(i).getNum_exp().equals(exped)){
+                agr.setText(Integer.toString(GUI_JUZGADO.agravantes.get(i).getValor()));
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -258,9 +258,9 @@ public class AGREGAR_FACTORES extends javax.swing.JFrame {
         
         pena.setText(Integer.toString(penas));
         
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            if(GUI_PRINCIPAL.expedientes.get(i).getNumero().equals(numExp.getText())){
-                GUI_PRINCIPAL.expedientes.get(i).setPena(penas);
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(numExp.getText())){
+                GUI_JUZGADO.expedientes.get(i).setPena(penas);
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -271,14 +271,14 @@ public class AGREGAR_FACTORES extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String exped = "";
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            if(GUI_PRINCIPAL.expedientes.get(i).getNumero().equals(numExp.getText())){
-            exped = GUI_PRINCIPAL.expedientes.get(i).getNumero();
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(numExp.getText())){
+            exped = GUI_JUZGADO.expedientes.get(i).getNumero();
             }
         }
-        for(int i=0;i<GUI_PRINCIPAL.atenuantes.size();i++){
-            if(GUI_PRINCIPAL.atenuantes.get(i).getNum_exp().equals(exped)){
-                ate.setText(Integer.toString(GUI_PRINCIPAL.atenuantes.get(i).getValor()));
+        for(int i=0;i<GUI_JUZGADO.atenuantes.size();i++){
+            if(GUI_JUZGADO.atenuantes.get(i).getNum_exp().equals(exped)){
+                ate.setText(Integer.toString(GUI_JUZGADO.atenuantes.get(i).getValor()));
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed

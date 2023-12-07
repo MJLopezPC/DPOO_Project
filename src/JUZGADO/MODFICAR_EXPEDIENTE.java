@@ -193,20 +193,20 @@ public class MODFICAR_EXPEDIENTE extends javax.swing.JFrame {
         String vict = text_vict.getText();
         int anno = Integer.parseInt(text_anno.getText());
         
-        for(int i=0;i<GUI_PRINCIPAL.expedientes.size();i++){
-            if(GUI_PRINCIPAL.expedientes.get(i).getNumero().equals(text_num.getText())){
-                GUI_PRINCIPAL.expedientes.get(i).setAnno(anno);
-                GUI_PRINCIPAL.expedientes.get(i).setAutor(autor);
-                GUI_PRINCIPAL.expedientes.get(i).setVictima(vict);
+        for(int i=0;i<GUI_JUZGADO.expedientes.size();i++){
+            if(GUI_JUZGADO.expedientes.get(i).getNumero().equals(text_num.getText())){
+                GUI_JUZGADO.expedientes.get(i).setAnno(anno);
+                GUI_JUZGADO.expedientes.get(i).setAutor(autor);
+                GUI_JUZGADO.expedientes.get(i).setVictima(vict);
                 
-                for(int j=0;j<GUI_PRINCIPAL.autores.size();j++){
-                    if(GUI_PRINCIPAL.autores.get(j).getNumExp().equals(text_num.getText())){
-                        GUI_PRINCIPAL.autores.get(j).setNombre(autor);
+                for(int j=0;j<GUI_JUZGADO.autores.size();j++){
+                    if(GUI_JUZGADO.autores.get(j).getNumExp().equals(text_num.getText())){
+                        GUI_JUZGADO.autores.get(j).setNombre(autor);
                     }
                 }
-                for(int k=0;k<GUI_PRINCIPAL.victimas.size();k++){
-                    if(GUI_PRINCIPAL.victimas.get(k).getNumExp().equals(text_num.getText())){
-                        GUI_PRINCIPAL.victimas.get(k).setNombre(vict);
+                for(int k=0;k<GUI_JUZGADO.victimas.size();k++){
+                    if(GUI_JUZGADO.victimas.get(k).getNumExp().equals(text_num.getText())){
+                        GUI_JUZGADO.victimas.get(k).setNombre(vict);
                     }
                 }
                 text_num.setText(""); text_anno.setText(""); text_autor.setText(""); text_vict.setText("");

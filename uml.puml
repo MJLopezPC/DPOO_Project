@@ -108,5 +108,11 @@ Expediente "1" *-- "1" Autor
 Expediente "1" *-- "1" Victima
 Expediente "1" *-- "1" Hecho
 GUI_JUZGADO "1" *-- "0...*" Expediente
+Expediente <.. Serializable
+Autor <.. Serializable
+Victima <.. Serializable
+Hecho <.. Serializable
+Agravante <.. Serializable
+Atenuante <.. Serializable
 
 @enduml

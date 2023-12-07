@@ -1,6 +1,5 @@
 package JUZGADO;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class AGREGAR_AUTOR extends javax.swing.JFrame {

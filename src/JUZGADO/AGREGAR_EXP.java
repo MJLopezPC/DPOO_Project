@@ -1,6 +1,5 @@
 package JUZGADO;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class AGREGAR_EXP extends javax.swing.JFrame {

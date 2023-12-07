@@ -153,6 +153,12 @@ public class ELIMINAR_EXP extends javax.swing.JFrame {
                 }
                 GUI_PRINCIPAL.expedientes.remove(i);
                 numero.setText("");
+                
+                Archivo binario = new Archivo();
+                binario.escribirExpediente();  binario.escribirAutor();
+                binario.escribirVictima();  binario.escribirHecho();
+                binario.escribirAgravante();  binario.escribirAtenuante();
+                
                 JOptionPane.showMessageDialog(null, "Expediente eliminado correctamente");
             }
         }

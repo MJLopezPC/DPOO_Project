@@ -1,0 +1,46 @@
+@startuml
+skinparam ClassAttributeIconSize 0
+
+class GUI_JUZGADO{
+    {static} expedientes: ArrayList<Expediente>
+    {static} autores: ArrayList<Autor>
+    {static} victimas: ArrayList<Victima>
+    {static} hechos: ArrayList<Hecho>
+    {static} agravantes: ArrayList<Agravante>
+    {static} atenuantes: ArrayList<Atenuante>
+
+    +Mostrar_Expedientes(): void
+    +Emitir_Sentencia(): void
+}
+
+class Expediente
+class Autor
+class Victima
+class Hecho
+abstract class Circunstancia
+class Agravante
+class Atenuante
+
+interface Serializable
+
+Circunstancia <|-- Agravante
+Circunstancia <|-- Atenuante
+Expediente "1" *-- "0...*" Circunstancia
+Expediente "1" *-- "1" Autor
+Expediente "1" *-- "1" Victima
+Expediente "1" *-- "1" Hecho
+GUI_JUZGADO "1" *-- "0...*" Expediente
+Hecho "1" *--* "1" Autor
+Victima "1" *--* "1" Autor
+Victima "1" *--* "1" Hecho
+Circunstancia "1" *--* "1" Autor
+Circunstancia "1" *--* "1" Victima
+Circunstancia "1" *--* "1" Hecho
+Expediente <.. Serializable
+Autor <.. Serializable
+Victima <.. Serializable
+Hecho <.. Serializable
+Agravante <.. Serializable
+Atenuante <.. Serializable
+
+@enduml

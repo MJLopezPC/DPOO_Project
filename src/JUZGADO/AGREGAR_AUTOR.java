@@ -143,7 +143,7 @@ public class AGREGAR_AUTOR extends javax.swing.JFrame {
         penales.setBackground(new java.awt.Color(255, 255, 255));
         penales.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         penales.setForeground(new java.awt.Color(0, 0, 0));
-        penales.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Homicidio Simple", "Robo Simple", "Lesiones Graves", "Otros" }));
+        penales.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Ningunos", "Homicidio Simple", "Robo Simple", "Lesiones Graves", "Otros" }));
 
         arrepentimiento.setBackground(new java.awt.Color(255, 255, 255));
         arrepentimiento.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -355,7 +355,7 @@ public class AGREGAR_AUTOR extends javax.swing.JFrame {
             }
         
         if(lucro.getSelectedItem().equals("SI")) valor_agr+=1; else valor_ate+=1;
-        if(penales.getSelectedItem().equals(" ")) valor_ate+=1; else valor_agr+=3;
+        if(penales.getSelectedItem().equals("Ningunos")) valor_ate+=1; else valor_agr+=3;
         if(arrepentimiento.getSelectedItem().equals("SI")) valor_ate+=2; else valor_agr+=1;
         if(vecinal.getSelectedItem().equals("Bueno")) valor_ate+=2; else valor_agr+=1;
         if(educacion.getSelectedItem().equals("Medio")) valor_agr+=2; else if(educacion.getSelectedItem().equals("Medio-Superior")) valor_agr+=1; else valor_ate+=2;
